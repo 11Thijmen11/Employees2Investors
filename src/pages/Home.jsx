@@ -1,0 +1,160 @@
+import React from 'react'
+import { motion } from 'framer-motion'
+import Chart from '../components/Chart'
+
+const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }
+const scaleIn = { hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } } }
+
+export default function Home(){
+  return (
+    <div className="space-y-16 pb-8">
+      {/* Hero Section */}
+      <motion.section 
+        initial="hidden" 
+        whileInView="visible" 
+        viewport={{ once: true, margin: "-50px" }} 
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        className="rounded-3xl overflow-hidden bg-gradient-to-br from-primary via-primary to-primaryDark text-cream p-8 md:p-20 shadow-2xl"
+      >
+        <div className="container mx-auto">
+          {/* Hero Content */}
+          <motion.div variants={fadeUp} className="mb-12">
+            <div className="mb-2 inline-block bg-secondary/20 px-4 py-1 rounded-full text-secondary text-sm font-semibold">
+              💼 Investeringsadvies voor werknemers
+            </div>
+            <h1 className="text-2xl md:text-5xl font-black leading-tight mt-4">Employees2Investors</h1>
+            <p className="mt-5 text-cream/90 text-lg max-w-lg leading-relaxed">Wij helpen werknemers strategisch hun investeringskeuzes te maken met persoonlijke begeleiding en lange termijn strategien, zodat geld echt voor jou kan werken.</p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <motion.a 
+                href="https://voorbeeldlink.nl/gids" 
+                target="_blank" 
+                rel="noreferrer" 
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+                className="btn btn-secondary text-base"
+              >
+                📥 Download gratis gids
+              </motion.a>
+              <motion.a 
+                href="/afspraak" 
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+                className="btn btn-primary text-base"
+              >
+                ✓ Maak een afspraak
+              </motion.a>
+              <motion.a 
+                href="/over" 
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.2 }}
+                className="btn btn-primary text-base"
+              >
+                🙋‍♂️ Over mij
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* Waarom wij? Card - Below the content */}
+          <motion.div variants={scaleIn}>
+            <div className="card p-8 md:p-10 border-4 border-secondary bg-gradient-to-br from-cream to-cream/80">
+              <div className="mb-6 text-4xl">✨</div>
+              <h3 className="text-2xl font-bold mb-4 text-primaryDark">Waarom wij?</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold text-lg mt-0.5">✓</span>
+                  <span className="text-primaryDark">Persoonlijke aanpak gebaseerd op jouw doelen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold text-lg mt-0.5">✓</span>
+                  <span className="text-primaryDark">Een geautomatiseerd en strategisch systeem</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold text-lg mt-0.5">✓</span>
+                  <span className="text-primaryDark">Jij bepaalt wat je met je geld doet, wij zijn de gids!</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Features Section */}
+      <motion.section 
+        initial="hidden" 
+        whileInView="visible" 
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+        className="container mx-auto px-4"
+      >
+        <div className="mb-12 text-center">
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-secondary">Hoe het werkt</motion.h2>
+          <motion.div variants={fadeUp} className="mt-2 h-1 bg-gradient-to-r from-secondary via-secondary to-transparent w-32 mx-auto"></motion.div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { icon: '📞', title: 'Kennismaken', desc: 'We starten met een vrijblijvend gesprek om jouw doelen te begrijpen.' },
+            { icon: '📊', title: 'Analyseren', desc: 'Je krijgt inzicht in je financiële positie en de kansen die daarbij horen.' },
+            { icon: '🚀', title: 'Actie nemen', desc: 'Met het Interest(ing) System helpen we je om stap voor stap te investeren op een manier die bij jou past.' }
+          ].map((item, idx) => (
+            <motion.div 
+              key={idx}
+              variants={fadeUp}
+              className="card hover:shadow-xl transition-shadow p-6 md:p-8 text-center group"
+            >
+              <div className="text-5xl mb-4">{item.icon}</div>
+              <h3 className="text-xl font-bold text-primaryDark mb-2">{item.title}</h3>
+              <p className="text-primaryDark/80 text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Chart section */}
+      <section className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-secondary">Markttrends</h2>
+            <p className="text-secondary/70 mt-1 text-sm">Volg actuele beurskoersen en markt inzichten</p>
+          </div>
+          <Chart />
+        </motion.div>
+      </section>
+
+      {/* CTA Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+        className="container mx-auto px-4 py-12 bg-cream rounded-3xl"
+      >
+        <div className="text-center">
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-primaryDark">Klaar om te starten?</motion.h2>
+          <motion.p variants={fadeUp} className="mt-3 text-primaryDark/80 max-w-lg mx-auto text-lg">
+            Plan nu je gratis adviesgesprek van 30 minuten en ontdek hoe Employees2Investors jou kan helpen om geld voor je te laten werken.
+            
+            <motion.p variants={fadeUp} className="mt-3 text-primaryDark/80 max-w-lg mx-auto text-lg"></motion.p>
+            Er zijn op dit moment 8 van de 12 plekken beschikbaar voor deze maand.
+            Elke maand openen we opnieuw de inschrijvingen, dus wees er op tijd bij.
+          </motion.p>
+          <motion.a 
+            variants={fadeUp}
+            href="/afspraak" 
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+            className="inline-block mt-6 btn btn-secondary text-base"
+          >
+            → Plan een afspraak
+          </motion.a>
+        </div>
+      </motion.section>
+    </div>
+  )
+}
