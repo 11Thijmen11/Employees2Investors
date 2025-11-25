@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ProfileSVG from '../assets/profile.svg'
 
@@ -161,15 +162,16 @@ export default function About(){
         <motion.p variants={fadeUp} className="text-primaryDark/80 text-lg max-w-lg mx-auto mb-8">
           Bereid voor een kostenloos adviesgesprek van 30 minuten? Ik kijk ernaar uit om je te helpen.
         </motion.p>
-        <motion.a 
-          variants={fadeUp}
-          href="/afspraak" 
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
-          className="inline-block btn btn-secondary text-base"
-        >
-          → Plan een afspraak
-        </motion.a>
+        <Link to="/afspraak">
+          <motion.div
+            variants={fadeUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+            className="inline-block btn btn-secondary text-base"
+          >
+            → Plan een afspraak
+          </motion.div>
+        </Link>
       </motion.section>
     </div>
   )

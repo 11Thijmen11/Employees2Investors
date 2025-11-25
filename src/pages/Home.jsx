@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Chart from '../components/Chart'
 
@@ -36,22 +37,24 @@ export default function Home(){
               >
                 📥 Download gratis gids
               </motion.a>
-              <motion.a 
-                href="/afspraak" 
-                whileHover={{ scale: 1.05, y: -2 }}
-                transition={{ duration: 0.2 }}
-                className="btn btn-primary text-base"
-              >
-                ✓ Maak een afspraak
-              </motion.a>
-              <motion.a 
-                href="/over" 
-                whileHover={{ scale: 1.05, y: -2 }}
-                transition={{ duration: 0.2 }}
-                className="btn btn-primary text-base"
-              >
-                🙋‍♂️ Over mij
-              </motion.a>
+              <Link to="/afspraak">
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className="btn btn-primary text-base"
+                >
+                  ✓ Maak een afspraak
+                </motion.div>
+              </Link>
+              <Link to="/over">
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className="btn btn-primary text-base"
+                >
+                  🙋‍♂️ Over mij
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
 
@@ -144,15 +147,16 @@ export default function Home(){
             Er zijn op dit moment 8 van de 12 plekken beschikbaar voor deze maand.
             Elke maand openen we opnieuw de inschrijvingen, dus wees er op tijd bij.
           </motion.p>
-          <motion.a 
-            variants={fadeUp}
-            href="/afspraak" 
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            className="inline-block mt-6 btn btn-secondary text-base"
-          >
-            → Plan een afspraak
-          </motion.a>
+          <Link to="/afspraak">
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+              className="inline-block mt-6 btn btn-secondary text-base"
+            >
+              → Plan een afspraak
+            </motion.div>
+          </Link>
         </div>
       </motion.section>
     </div>
