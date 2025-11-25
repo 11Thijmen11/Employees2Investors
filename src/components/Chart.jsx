@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
 
-// Live S&P 500 chart using Alpha Vantage API
-// Get your free API key at: https://www.alphavantage.co/support/#api-key
-const API_KEY = '0VQE4F6FE9NZ37FR' // Replace with your actual API key
+const API_KEY = '0VQE4F6FE9NZ37FR' 
 
 export default function Chart(){
   const [data, setData] = useState([])
