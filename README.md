@@ -16,4 +16,4 @@ Stack:
 
 Notes:
 - De top-banner `Beschikbare plekken: [x]` is dynamisch instelbaar in `src/App.jsx`.
-- De grafiek laadt dummy data uit `src/data/prices.json`.
+- De grafiek laadt live data zien van de S&P500 met een eigen api key.
