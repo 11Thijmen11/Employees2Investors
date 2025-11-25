@@ -9,6 +9,8 @@ export default function Chart(){
   const [error, setError] = useState(null)
   const [currentPrice, setCurrentPrice] = useState(null)
   const [priceChange, setPriceChange] = useState(null)
+  const [lastUpdateDate, setLastUpdateDate] = useState(null)
+  const [showInfo, setShowInfo] = useState(false)
 
   useEffect(() => {
     // Fetch S&P 500 (SPY ETF as proxy) intraday data
@@ -28,26 +30,45 @@ export default function Chart(){
           throw new Error('Geen data beschikbaar')
         }
 
-        // Convert to chart format (last 30 data points for readability)
-        const chartData = Object.entries(timeSeries)
-          .slice(0, 30)
-          .reverse()
+        // Get all data points from the full trading day
+        const allData = Object.entries(timeSeries)
           .map(([time, values]) => {
-            // Convert ET to Dutch time (ET + 6 hours)
-            const etTime = new Date(time + ' EST')
-            const nlTime = new Date(etTime.getTime() + (6 * 60 * 60 * 1000))
-            const hours = nlTime.getHours().toString().padStart(2, '0')
-            const minutes = nlTime.getMinutes().toString().padStart(2, '0')
+            const timeOnly = time.split(' ')[1].substring(0, 5)
+            const [etHours, etMinutes] = timeOnly.split(':').map(Number)
+            
+            // Convert ET to NL time (ET + 6 hours for CET)
+            let nlHours = etHours + 6
+            if (nlHours >= 24) nlHours -= 24
             
             return {
-              time: `${hours}:${minutes}`,
+              time: `${nlHours.toString().padStart(2, '0')}:${etMinutes.toString().padStart(2, '0')}`,
               price: parseFloat(values['4. close']),
               fullTime: time,
-              showLabel: minutes === '00' || minutes === '30' // Only show :00 and :30
+              nlHours,
+              etHours
             }
           })
+          // Filter for trading hours: ET 09:30-16:00 = NL 15:30-22:00
+          .filter(item => {
+            return (item.etHours >= 9 && item.etHours < 16) || 
+                   (item.etHours === 16 && item.time.split(':')[1] === '00')
+          })
+          .reverse() // Oldest to newest
+        
+        // Only keep :00 and :30 times for cleaner display
+        const chartData = allData.filter(item => {
+          const minutes = item.time.split(':')[1]
+          return minutes === '00' || minutes === '30'
+        })
 
         setData(chartData)
+        
+        // Get the date from the first data point
+        if (chartData.length > 0) {
+          const firstDataDate = chartData[0].fullTime.split(' ')[0]
+          const [year, month, day] = firstDataDate.split('-')
+          setLastUpdateDate(`${day}-${month}-${year}`)
+        }
         
         // Calculate price change
         if (chartData.length > 0) {
@@ -97,8 +118,20 @@ export default function Chart(){
     <div className="card-dark">
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-lg font-semibold text-lightOnDark">S&P 500 (SPY)</h3>
+          <div className="flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-lightOnDark">S&P 500 (SPY)</h3>
+            <button 
+              onClick={() => setShowInfo(!showInfo)}
+              className="text-lightOnDark/70 hover:text-lightOnDark transition-colors"
+              title="Informatie"
+            >
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border-2 border-current text-xs font-bold">i</span>
+            </button>
+          </div>
           <p className="text-sm text-lightOnDark/70">Live data • NL: 15:30-22:00 | US: 09:30-16:00 ET</p>
+          {lastUpdateDate && (
+            <p className="text-xs text-lightOnDark/60 mt-1">Datum: {lastUpdateDate}</p>
+          )}
         </div>
         {currentPrice && (
           <div className="text-right">
@@ -110,22 +143,32 @@ export default function Chart(){
         )}
       </div>
       
-      
+      {/* Info box */}
+      {showInfo && (
+        <div className="mb-4 p-4 bg-lightOnDark/10 rounded-lg border border-secondary/30">
+          <h4 className="text-sm font-bold text-lightOnDark mb-2">📊 Hoe werkt deze grafiek?</h4>
+          <ul className="text-xs text-lightOnDark/80 space-y-1">
+            <li>• De grafiek toont de S&P 500 koers via SPY ETF</li>
+            <li>• Data wordt elke 5 minuten ververst tijdens handelstijden</li>
+            <li>• Tijden zijn weergegeven in Nederlandse tijd (CET)</li>
+            <li>• Buiten handelstijden zie je data van de laatste handelsdag</li>
+            <li>• Hover over de lijn voor exacte prijs en tijd</li>
+          </ul>
+        </div>
+      )}
 
-      <div style={{ width: '100%', height: 260 }}>
+      <div style={{ width: '100%', height: 360 }}>
         <ResponsiveContainer>
           <LineChart data={data}>
             <CartesianGrid stroke="#ffffff22" />
             <XAxis 
               dataKey="time" 
               stroke="#FFF5E6"
-              tick={{ fontSize: 12 }}
-              interval="preserveStartEnd"
-              tickFormatter={(value, index) => {
-                // Only show times at :00 and :30
-                const minutes = value.split(':')[1]
-                return (minutes === '00' || minutes === '30') ? value : ''
-              }}
+              tick={{ fontSize: 11 }}
+              interval={0}
+              angle={-45}
+              textAnchor="end"
+              height={60}
             />
             <YAxis 
               domain={["dataMin - 2", "dataMax + 2"]} 
@@ -140,7 +183,8 @@ export default function Chart(){
                 border: '1px solid #F19C47'
               }} 
               itemStyle={{ color: '#FFF5E6' }}
-              formatter={(value) => [`$${value}`, 'Prijs']}
+              formatter={(value) => [`$${value.toFixed(2)}`, 'Prijs']}
+              labelFormatter={(label) => `Tijd: ${label}`}
             />
             <Line 
               type="monotone" 
