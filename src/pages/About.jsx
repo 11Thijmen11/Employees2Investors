@@ -6,13 +6,13 @@ import ProfileSVG from '../assets/profile.svg'
 const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }
 const scaleIn = { hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } } }
 
-export default function About(){
+export default function About() {
   return (
     <div className="space-y-16 pb-8">
       {/* Hero Section */}
-      <motion.section 
-        initial="hidden" 
-        whileInView="visible" 
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
         className="rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-primaryDark text-cream p-8 md:p-16 shadow-2xl"
@@ -41,9 +41,9 @@ export default function About(){
       </motion.section>
 
       {/* Mobile Profile Card */}
-      <motion.section 
-        initial="hidden" 
-        whileInView="visible" 
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
         variants={scaleIn}
         className="md:hidden container mx-auto px-4"
@@ -56,9 +56,9 @@ export default function About(){
       </motion.section>
 
       {/* Mission & Values */}
-      <motion.section 
-        initial="hidden" 
-        whileInView="visible" 
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
         className="container mx-auto px-4"
@@ -73,7 +73,7 @@ export default function About(){
             { icon: '💡', title: 'Duidelijk & Eerlijk', desc: 'Geen vakjargon, geen verborgen kosten. Alles wordt transparant uitgelegd.' },
             { icon: '📈', title: 'Lange Termijn', desc: 'Ik geloof in geduldige, weloverwogen investeringsstrategieën die resultaten opleveren.' }
           ].map((item, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               variants={fadeUp}
               className="card p-6 md:p-8 text-center hover:shadow-xl transition-shadow border-t-4 border-secondary"
@@ -87,9 +87,9 @@ export default function About(){
       </motion.section>
 
       {/* Motivation Section */}
-      <motion.section 
-        initial="hidden" 
-        whileInView="visible" 
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
         className="container mx-auto px-4 max-w-3xl"
@@ -107,16 +107,16 @@ export default function About(){
               Ik geloof dat iedereen kan investeren, ongeacht kennis of inkomen. Met de juiste strategie kun je jouw vermogen laten groeien en tegelijkertijd persoonlijk sterker worden.
             </p>
             <p className="text-primaryDark/90 text-lg leading-relaxed mt-4">
-            Bij Employees2Investors draait het niet alleen om financiële groei, maar ook om persoonlijke ontwikkeling, discipline en rust in je geldzaken.
+              Bij Employees2Investors draait het niet alleen om financiële groei, maar ook om persoonlijke ontwikkeling, discipline en rust in je geldzaken.
             </p>
           </motion.div>
         </div>
       </motion.section>
 
       {/* Credentials/Highlights */}
-      <motion.section 
-        initial="hidden" 
-        whileInView="visible" 
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         className="container mx-auto px-4"
@@ -127,14 +127,12 @@ export default function About(){
 
         <div className="grid md:grid-cols-2 gap-6">
           {[
-            { emoji: '✓', text: 'Gecertificeerde financieel adviseur met jaren van ervaring' },
             { emoji: '✓', text: 'Onafhankelijk en transparant in alle adviezen' },
             { emoji: '✓', text: 'Luistert goed naar jouw persoonlijke situatie en doelen' },
             { emoji: '✓', text: 'Maakt complexe concepten begrijpelijk en eenvoudig' },
             { emoji: '✓', text: 'Biedt persoonlijke 1-op-1 ondersteuning en begeleiding' },
-            { emoji: '✓', text: 'Gericht op jouw lange termijn financiële welzijn' }
           ].map((item, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               variants={fadeUp}
               className="card p-6 flex items-start gap-4 hover:shadow-lg transition-shadow border-l-4 border-secondary"

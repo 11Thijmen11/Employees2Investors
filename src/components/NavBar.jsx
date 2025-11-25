@@ -18,7 +18,7 @@ export default function NavBar() {
           <NavLink to="/" className={({isActive}) => isActive ? 'text-cream font-semibold' : 'text-cream/90 hover:text-white transition'}>Home</NavLink>
           <NavLink to="/afspraak" className={({isActive}) => isActive ? 'text-cream font-semibold' : 'text-cream/90 hover:text-white transition'}>Afspraak maken</NavLink>
           <NavLink to="/over" className={({isActive}) => isActive ? 'text-cream font-semibold' : 'text-cream/90 hover:text-white transition'}>Over mij</NavLink>
-          <a href="https://voorbeeldlink.nl/gids" target="_blank" rel="noreferrer" className="ml-4 btn btn-secondary">Download gratis gids</a>
+          <a href="https://preview.mailerlite.io/forms/1879033/169236138024765227/share" target="_blank" rel="noreferrer" className="ml-4 btn btn-secondary">Download gratis gids</a>
         </nav>
 
         {/* mobile menu */}
@@ -29,7 +29,7 @@ export default function NavBar() {
               <Link to="/" className="block py-1">Home</Link>
               <Link to="/afspraak" className="block py-1">Afspraak maken</Link>
               <Link to="/over" className="block py-1">Over mij</Link>
-              <a href="https://voorbeeldlink.nl/gids" target="_blank" rel="noreferrer" className="block mt-2 btn btn-secondary text-center">Download gids</a>
+              <a href="https://preview.mailerlite.io/forms/1879033/169236138024765227/share" target="_blank" rel="noreferrer" className="block mt-2 btn btn-secondary text-center">Download gids</a>
             </div>
           </details>
         </div>
