@@ -24,7 +24,7 @@ export default function Home(){
               💼 Investeringsadvies voor werknemers
             </div>
             <h1 className="text-2xl md:text-5xl font-black leading-tight mt-4">Employees2Investors</h1>
-            <p className="mt-5 text-cream/90 text-lg max-w-lg leading-relaxed">Wij helpen werknemers strategisch hun investeringskeuzes te maken met persoonlijke begeleiding en lange termijn strategien, zodat geld echt voor jou kan werken.</p>
+            <p className="mt-5 text-cream/90 text-lg max-w-lg leading-relaxed">Wij helpen werknemers strategisch hun investeringskeuzes te maken met persoonlijke begeleiding en lange termijn strategiën, zodat geld echt voor jou kan werken.</p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <motion.a 
@@ -124,7 +124,7 @@ export default function Home(){
         >
           <div className="mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary">Markttrends</h2>
-            <p className="text-secondary/70 mt-1 text-sm">Volg actuele beurskoersen en markt inzichten</p>
+            <p className="text-white mt-1 text-sm">Volg actuele beurskoersen en markt inzichten</p>
           </div>
           <Chart />
         </motion.div>
