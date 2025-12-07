@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Chart from '../components/Chart'
-import IntroVideo from '../assets/WhatsApp Video 2025-12-07 at 15.33.39_feaaa675.mp4'
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }
 const scaleIn = { hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } } }
@@ -59,21 +58,14 @@ export default function Home(){
             </div>
           </motion.div>
 
-          {/* Waarom wij? Card - Below the content */}
+          {/* Markttrends Card - Below the content */}
           <motion.div variants={scaleIn}>
-            <div className="card p-6 md:p-8 border-4 border-primary bg-white max-w-3xl mx-auto">
-              {/* Video */}
-              <div>
-                <video 
-                  className="w-full rounded-xl shadow-lg"
-                  style={{ aspectRatio: '4/5', objectFit: 'cover' }}
-                  controls
-                  poster=""
-                >
-                  <source src={IntroVideo} type="video/mp4" />
-                  Je browser ondersteunt geen video.
-                </video>
+            <div className="card p-6 md:p-8 border-4 border-primary bg-white">
+              <div className="mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold text-black">Markttrends</h2>
+                <p className="text-primaryDark mt-1 text-sm">Volg actuele beurskoersen en markt inzichten</p>
               </div>
+              <Chart />
             </div>
           </motion.div>
         </div>
@@ -110,22 +102,6 @@ export default function Home(){
           ))}
         </div>
       </motion.section>
-
-      {/* Chart section */}
-      <section className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-black">Markttrends</h2>
-            <p className="text-primaryDark mt-1 text-sm">Volg actuele beurskoersen en markt inzichten</p>
-          </div>
-          <Chart />
-        </motion.div>
-      </section>
 
       {/* CTA Section */}
       <motion.section
