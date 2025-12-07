@@ -132,6 +132,19 @@ export default function Home(){
           </Link>
         </div>
       </motion.section>
+
+      {/* Trustpilot Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={fadeUp}
+        className="container mx-auto px-4"
+      >
+        <div className="trustpilot-widget" data-locale="nl-NL" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69359b5fffffdcbe6fca6caa" data-style-height="52px" data-style-width="100%" data-token="fcf807d8-4cb6-4dd4-b702-6a13675d5d3d">
+          <a href="https://nl.trustpilot.com/review/employees2investors.nl" target="_blank" rel="noopener">Trustpilot</a>
+        </div>
+      </motion.section>
     </div>
   )
 }
