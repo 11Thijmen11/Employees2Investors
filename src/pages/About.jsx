@@ -111,7 +111,7 @@ export default function About() {
         <div className="grid md:grid-cols-3 gap-6">
           {[
             { icon: '🎯', title: 'Gericht op jou', desc: 'Elk advies is persoonlijk afgestemd op jouw situatie, doelen en risicoprofiel.' },
-            { icon: '💡', title: 'Duidelijk & Eerlijk', desc: 'Geen vakjargon, geen verborgen kosten. Alles wordt transparant uitgelegd.' },
+            { icon: '💡', title: 'Duidelijk & Eerlijk', desc: 'Alles wordt transparant uitgelegd.' },
             { icon: '📈', title: 'Lange Termijn', desc: 'Ik geloof in geduldige, weloverwogen investeringsstrategieën die resultaten opleveren.' }
           ].map((item, idx) => (
             <motion.div

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -12,6 +12,13 @@ export default function App() {
   const [availableSpots, setAvailableSpots] = useState(8)
   const maxSpots = 12 // changeable total capacity for FOMO effect
   const fillPercent = Math.min(100, Math.round((availableSpots / maxSpots) * 100))
+  
+  const location = useLocation()
+
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   return (
     <div className="min-h-screen flex flex-col">
