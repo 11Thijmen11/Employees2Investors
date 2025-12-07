@@ -45,7 +45,7 @@ export default function Appointment(){
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
         className="container mx-auto px-4"
       >
-        <div className="card bg-gradient-to-r from-cream to-cream/90 p-8 md:p-16 text-center rounded-3xl border-4 border-secondary">
+        <div className="card bg-white p-8 md:p-16 text-center rounded-3xl border-4 border-primary">
           <motion.div variants={fadeUp}>
             <h2 className="text-3xl md:text-4xl font-bold text-primaryDark mb-4">Klaar om te beginnen?</h2>
             <p className="text-primaryDark/80 text-lg max-w-lg mx-auto mb-8">
@@ -84,7 +84,7 @@ export default function Appointment(){
             <motion.div 
               key={idx}
               variants={fadeUp}
-              className="card p-6 md:p-8 text-center border-l-4 border-secondary"
+              className="card p-6 md:p-8 text-center border-l-4 border-primary"
             >
               <div className="text-4xl mb-3">{step.icon}</div>
               <div className="inline-block bg-secondary text-white px-3 py-1 rounded-full font-bold text-lg mb-3">
@@ -105,7 +105,7 @@ export default function Appointment(){
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         className="container mx-auto px-4 max-w-2xl"
       >
-        <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-bold text-secondary mb-8 text-center">
+        <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-bold text-black mb-8 text-center">
           Veelgestelde vragen
         </motion.h2>
 
@@ -119,7 +119,7 @@ export default function Appointment(){
             <motion.div 
               key={idx}
               variants={fadeUp}
-              className="card p-6 border-l-4 border-secondary"
+              className="card p-6 border-l-4 border-primary"
             >
               <h3 className="font-bold text-primaryDark mb-2 flex items-start gap-2">
                 <span className="text-secondary">❓</span>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Chart from '../components/Chart'
+import IntroVideo from '../assets/WhatsApp Video 2025-12-07 at 15.33.39_feaaa675.mp4'
 
 const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }
 const scaleIn = { hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } } }
@@ -60,23 +61,19 @@ export default function Home(){
 
           {/* Waarom wij? Card - Below the content */}
           <motion.div variants={scaleIn}>
-            <div className="card p-8 md:p-10 border-4 border-secondary bg-gradient-to-br from-cream to-cream/80">
-              <div className="mb-6 text-4xl">✨</div>
-              <h3 className="text-2xl font-bold mb-4 text-primaryDark">Waarom wij?</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold text-lg mt-0.5">✓</span>
-                  <span className="text-primaryDark">Persoonlijke aanpak gebaseerd op jouw doelen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold text-lg mt-0.5">✓</span>
-                  <span className="text-primaryDark">Een geautomatiseerd en strategisch systeem</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-secondary font-bold text-lg mt-0.5">✓</span>
-                  <span className="text-primaryDark">Jij bepaalt wat je met je geld doet, wij zijn de gids!</span>
-                </li>
-              </ul>
+            <div className="card p-6 md:p-8 border-4 border-primary bg-white max-w-3xl mx-auto">
+              {/* Video */}
+              <div>
+                <video 
+                  className="w-full rounded-xl shadow-lg"
+                  style={{ aspectRatio: '4/5', objectFit: 'cover' }}
+                  controls
+                  poster=""
+                >
+                  <source src={IntroVideo} type="video/mp4" />
+                  Je browser ondersteunt geen video.
+                </video>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -91,7 +88,7 @@ export default function Home(){
         className="container mx-auto px-4"
       >
         <div className="mb-12 text-center">
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-secondary">Hoe het werkt</motion.h2>
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-black">Hoe het werkt</motion.h2>
           <motion.div variants={fadeUp} className="mt-2 h-1 bg-gradient-to-r from-secondary via-secondary to-transparent w-32 mx-auto"></motion.div>
         </div>
 
@@ -123,8 +120,8 @@ export default function Home(){
           transition={{ duration: 0.6 }}
         >
           <div className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-secondary">Markttrends</h2>
-            <p className="text-white mt-1 text-sm">Volg actuele beurskoersen en markt inzichten</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-black">Markttrends</h2>
+            <p className="text-primaryDark mt-1 text-sm">Volg actuele beurskoersen en markt inzichten</p>
           </div>
           <Chart />
         </motion.div>
@@ -136,7 +133,7 @@ export default function Home(){
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-        className="container mx-auto px-4 py-12 bg-cream rounded-3xl"
+        className="container mx-auto px-4 py-12 bg-white rounded-3xl border-4 border-primary"
       >
         <div className="text-center">
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-primaryDark">Klaar om te starten?</motion.h2>
