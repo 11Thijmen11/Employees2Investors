@@ -19,14 +19,14 @@ export default function About() {
       >
         <div className="container mx-auto grid md:grid-cols-[2fr,1fr] gap-12 items-center">
           <motion.div variants={fadeUp}>
-            <h1 className="text-4xl md:text-5xl font-black leading-tight">Employees2Investors</h1>
-            <p className="mt-5 text-cream/90 text-2xl font-semibold leading-relaxed">Van werknemer naar Investeerder</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight">Employees2Investors</h1>
+            <p className="mt-5 text-cream/90 text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed">Van werknemer naar Investeerder</p>
           </motion.div>
 
           <motion.div variants={scaleIn} className="hidden md:flex justify-center">
-            <div className="card p-8 border-4 border-primary bg-white text-center">
+            <div className="p-8 bg-primary rounded-2xl shadow-lg text-center">
               <img src={ProfilePhoto} alt="Profielfoto" className="w-32 h-32 rounded-full object-cover border-4 border-secondary shadow-lg mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-primaryDark">Dion La Croix</h2>
+              <h2 className="text-2xl font-bold text-cream">Dion La Croix</h2>
               <p className="text-secondary font-semibold mt-1">Onafhankelijk Investeringsadviseur</p>
             </div>
           </motion.div>
@@ -41,9 +41,9 @@ export default function About() {
         variants={scaleIn}
         className="md:hidden container mx-auto px-4"
       >
-        <div className="card p-8 border-4 border-primary bg-white text-center">
+        <div className="p-8 bg-primary rounded-2xl shadow-lg text-center">
           <img src={ProfilePhoto} alt="Profielfoto" className="w-32 h-32 rounded-full object-cover border-4 border-secondary shadow-lg mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-primaryDark">Dion La Croix</h2>
+          <h2 className="text-2xl font-bold text-cream">Dion La Croix</h2>
           <p className="text-secondary font-semibold mt-1">Onafhankelijk Investeringsadviseur</p>
         </div>
       </motion.section>

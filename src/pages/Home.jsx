@@ -139,11 +139,19 @@ export default function Home(){
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={fadeUp}
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 text-center"
       >
-        <div className="trustpilot-widget" data-locale="nl-NL" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69359b5fffffdcbe6fca6caa" data-style-height="52px" data-style-width="100%" data-token="fcf807d8-4cb6-4dd4-b702-6a13675d5d3d">
-          <a href="https://nl.trustpilot.com/review/employees2investors.nl" target="_blank" rel="noopener">Trustpilot</a>
-        </div>
+        <h2 className="text-2xl md:text-3xl font-bold text-black mb-6">Wat klanten zeggen</h2>
+        <motion.a
+          href="https://nl.trustpilot.com/review/employees2investors.nl"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+          className="inline-block btn btn-secondary text-base"
+        >
+          ⭐ Bekijk onze reviews op Trustpilot
+        </motion.a>
       </motion.section>
     </div>
   )
