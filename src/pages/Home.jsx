@@ -28,7 +28,7 @@ export default function Home(){
 
             <div className="mt-10 flex flex-wrap gap-4">
               <motion.a 
-                href="https://preview.mailerlite.io/forms/1879033/169236138024765227/share" 
+                href="https://tinyurl.com/E2I-gratis-gids" 
                 target="_blank" 
                 rel="noreferrer" 
                 whileHover={{ scale: 1.05, y: -2 }}
