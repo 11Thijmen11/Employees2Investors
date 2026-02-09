@@ -15,10 +15,10 @@ export default function NavBar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/" className={({isActive}) => isActive ? 'text-cream font-semibold' : 'text-cream/90 hover:text-white transition'}>Home</NavLink>
-          <NavLink to="/afspraak" className={({isActive}) => isActive ? 'text-cream font-semibold' : 'text-cream/90 hover:text-white transition'}>Afspraak maken</NavLink>
-          <NavLink to="/over" className={({isActive}) => isActive ? 'text-cream font-semibold' : 'text-cream/90 hover:text-white transition'}>Over mij</NavLink>
-          <a href="https://tinyurl.com/E2I-gratis-gids" target="_blank" rel="noreferrer" className="ml-4 btn btn-secondary">Download gratis gids</a>
+          <NavLink to="/" className={({isActive}) => isActive ? 'text-cream font-semibold text-lg' : 'text-cream/90 hover:text-white transition text-lg'}>Home</NavLink>
+          <NavLink to="/afspraak" className={({isActive}) => isActive ? 'text-cream font-semibold text-lg' : 'text-cream/90 hover:text-white transition text-lg'}>Afspraak maken</NavLink>
+          <NavLink to="/over" className={({isActive}) => isActive ? 'text-cream font-semibold text-lg' : 'text-cream/90 hover:text-white transition text-lg'}>Over mij</NavLink>
+          <a href="https://tinyurl.com/E2I-gratis-gids" target="_blank" rel="noreferrer" className="ml-4 btn btn-secondary text-lg px-6 py-3">Download gratis gids</a>
         </nav>
 
         {/* mobile menu */}
@@ -29,7 +29,7 @@ export default function NavBar() {
               <Link to="/" className="block py-1">Home</Link>
               <Link to="/afspraak" className="block py-1">Afspraak maken</Link>
               <Link to="/over" className="block py-1">Over mij</Link>
-              <a href="https://tinyurl.com/E2I-gratis-gids" target="_blank" rel="noreferrer" className="block mt-2 btn btn-secondary text-center">Download gids</a>
+              <a href="https://tinyurl.com/E2I-gratis-gids" target="_blank" rel="noreferrer" className="block mt-2 btn btn-secondary text-center text-base px-4 py-2">Download gids</a>
             </div>
           </details>
         </div>
