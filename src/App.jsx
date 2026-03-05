@@ -9,7 +9,7 @@ import About from './pages/About'
 // Root app: holds global state such as available spots
 export default function App() {
   // Make this dynamic so it's easy to update later
-  const [availableSpots, setAvailableSpots] = useState(8)
+  const [availableSpots, setAvailableSpots] = useState(10)
   const maxSpots = 12 // changeable total capacity for FOMO effect
   const fillPercent = Math.min(100, Math.round((availableSpots / maxSpots) * 100))
   
