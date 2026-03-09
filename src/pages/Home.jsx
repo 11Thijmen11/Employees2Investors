@@ -117,7 +117,7 @@ export default function Home(){
             Plan nu je gratis adviesgesprek van 30 minuten en ontdek hoe Employees2Investors jou kan helpen om geld voor je te laten werken.
             
             <motion.p variants={fadeUp} className="mt-3 text-primaryDark/80 max-w-lg mx-auto text-lg"></motion.p>
-            Er zijn op dit moment 8 van de 12 plekken beschikbaar voor deze maand.
+            Er zijn op dit moment 10 van de 12 plekken beschikbaar voor deze maand.
             Elke maand openen we opnieuw de inschrijvingen, dus wees er op tijd bij.
           </motion.p>
           <Link to="/afspraak">
