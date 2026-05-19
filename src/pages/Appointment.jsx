@@ -77,7 +77,7 @@ export default function Appointment(){
       >
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { num: '1', icon: '📅', title: 'Klik op de knop', desc: 'Ga naar de Calendly-planner, kies een moment perfect, klaar ook perfect.' },
+            { num: '1', icon: '📅', title: 'Klik op de knop', desc: 'Ga naar de Calendly-planner, kies een moment en klaar.' },
             { num: '2', icon: '📍', title: 'Kies een moment', desc: 'Selecteer een geschikte datum & tijd' },
             { num: '3', icon: '✅', title: 'Klaar!', desc: 'Ontvang een bevestiging per e-mail' }
           ].map((step, idx) => (
